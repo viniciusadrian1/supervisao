@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Marca JS como disponível ANTES do paint: o estado escondido das animações
+       (.reveal) só vale quando há JS. Sem JS, o conteúdo aparece normalmente. -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- ====================================================================== -->
+  <!-- SEO / OPEN GRAPH  (⚠️ AJUSTAR: domínio final em og:url e og:image)     -->
+  <!-- ====================================================================== -->
+  <title>Tour Virtual 360º no Google Maps · Street View | Supervisão 360</title>
+  <meta name="description" content="Tour virtual 360º no perfil da sua empresa no Google Maps. Fichas com fotos recebem 42% mais pedidos de rota. Autorizada Google Street View. Sem mensalidade." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://supervisao.com.br/" />
+
+  <!-- Open Graph (⚠️ AJUSTAR: troque para URL absoluta com o domínio final) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Supervisão 360" />
+  <meta property="og:title" content="Sua empresa por dentro do Google Maps — em 360º" />
+  <meta property="og:description" content="Tour virtual imersivo no seu perfil do Google. Mais visitas, mais clientes. Autorizada Google Street View. Publicação permanente, sem mensalidade." />
+  <meta property="og:image" content="https://supervisao.com.br/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://supervisao.com.br/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sua empresa por dentro do Google Maps — em 360º" />
+  <meta name="twitter:description" content="Tour virtual imersivo no seu perfil do Google. Autorizada Google Street View. Publicação permanente." />
+  <meta name="twitter:image" content="https://supervisao.com.br/assets/og-image.jpg" />
+
+  <meta name="theme-color" content="#0E1116" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <!-- Fonts: preconnect + carregamento NÃO-bloqueante (media=print -> all no onload).
+       Pesos enxutos (Inter 400/600/700, Sora 600/700/800) — só o que é usado. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" />
+  </noscript>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ====================================================================== -->
+  <!-- PIXELS DE RASTREAMENTO  (⚠️ AJUSTAR: cole os IDs reais e descomente)    -->
+  <!-- O disparo de conversão no clique do WhatsApp está em script.js         -->
+  <!-- ====================================================================== -->
+
+  <!-- ===== Meta Pixel (Facebook) — ⚠️ AJUSTAR: substitua SEU_PIXEL_ID ===== -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  -->
+
+  <!-- ===== Google Tag (gtag.js) — ⚠️ AJUSTAR: substitua G-XXXXXXX ===== -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
+
+  <!-- ===== Dados estruturados (JSON-LD): Organização + FAQ ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Supervisão 360",
+    "description": "Autorizada Google Street View (Trusted Photographer). Produção e publicação de tours virtuais 360º no Google Maps para estabelecimentos físicos.",
+    "url": "https://supervisao.com.br/",
+    "telephone": "+5511995770360",
+    "image": "https://supervisao.com.br/assets/og-image.jpg",
+    "sameAs": [
+      "https://www.instagram.com/supervisaogoogle360/",
+      "https://www.youtube.com/@supervisao360",
+      "https://www.facebook.com/supervisao360",
+      "https://www.linkedin.com/company/supervisao360/"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Quanto tempo dura a publicação? Preciso renovar ou pagar algo depois?", "acceptedAnswer": { "@type": "Answer", "text": "A publicação é permanente, sem custos fixos posteriores. O tour fica integrado ao Street View e distribuído na plataforma do Google indefinidamente, conforme os termos do Google. Não há mensalidade nem taxa de manutenção." } },
+      { "@type": "Question", "name": "De quem são as imagens? Como é a entrega?", "acceptedAnswer": { "@type": "Answer", "text": "Todos os arquivos pertencem ao cliente. Cada panorama é entregue em .jpg com 7.296 × 3.648 px e os vídeos em .mp4 nos formatos horizontal, quadrado e vertical." } },
+      { "@type": "Question", "name": "Quanto tempo demora?", "acceptedAnswer": { "@type": "Answer", "text": "A captação no local geralmente leva menos de 30 minutos. Depois vem o processamento em Lightroom, a edição em Photoshop e a montagem do tour com os links internos entre os panoramas." } },
+      { "@type": "Question", "name": "Onde mais posso usar as imagens?", "acceptedAnswer": { "@type": "Answer", "text": "Além do Google Maps, as imagens ficam disponíveis no Google Earth e podem ser usadas em óculos de VR, redes sociais, site e impressão. Os vídeos servem para website, redes e mensagens." } },
+      { "@type": "Question", "name": "As fotos antigas do carro do Street View atrapalham?", "acceptedAnswer": { "@type": "Answer", "text": "As fotos novas ganham evidência: imagens recentes aparecem em destaque. O Street View mantém o histórico arquivado por data, mas o posicionamento do que aparece primeiro é definido pelo algoritmo do Google." } }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ====================================================================== -->
+  <!-- SPRITE DE ÍCONES (definido 1x; reutilizado via <use>)                  -->
+  <!-- ====================================================================== -->
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-wa" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 .4C7.4.4.5 7.3.5 15.9c0 2.8.7 5.4 2 7.7L.4 31.6l8.2-2.1c2.2 1.2 4.8 1.9 7.4 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.4 16 .4zm0 28.3c-2.4 0-4.6-.6-6.6-1.8l-.5-.3-4.9 1.3 1.3-4.8-.3-.5a12.7 12.7 0 0 1-2-6.9C3 9 8.8 3.3 16 3.3S29 9 29 16.1 23.2 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+    </symbol>
+    <symbol id="ic-google" viewBox="0 0 24 24">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.26 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/>
+    </symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#1FB855"/>
+      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m7 12.5 3.2 3.2L17 8.5"/>
+    </symbol>
+    <symbol id="ic-chev" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="m6 9 6 6 6-6"/>
+    </symbol>
+  </svg>
+
+  <!-- Faixa de urgência: cronômetro por sessão (FLASH_MINUTES em script.js). -->
+  <div class="promo-bar" id="promo-bar">
+    ⚡ <strong>Oferta expira em <span id="flash-countdown" class="flash-num">01:00:00</span></strong>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- 1. HERO  (sem .reveal: pinta imediatamente — protege o LCP)            -->
+  <!-- ====================================================================== -->
+  <header class="hero" id="topo">
+    <div class="container hero__grid">
+      <div class="hero__content">
+
+        <span class="badge-authority">
+          <svg class="badge-authority__icon" width="18" height="18" aria-hidden="true"><use href="#ic-google"/></svg>
+          Autorizada Google Street View · Trusted Photographer
+        </span>
+
+        <h1 class="hero__title">
+          Sua empresa por dentro do Google&nbsp;Maps — <span class="text-grad">em 360º.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Fichas com fotos recebem <strong>42% mais pedidos de rota</strong>. Coloque um
+          tour virtual imersivo no seu perfil do Google e seja a escolha óbvia da região —
+          quem pesquisa entra, navega pelo seu espaço e decide visitar.
+        </p>
+
+        <a class="btn btn--whatsapp btn--lg js-wa"
+           data-wa-context="hero" data-track-label="cta_hero"
+           aria-label="Falar no WhatsApp e pedir meu Tour Virtual 360º">
+          <svg class="btn__wa-icon" width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg>
+          QUERO MEU TOUR 360º
+        </a>
+        <p class="cta-reassure">Resposta no mesmo dia · Sem compromisso · Leva 1 minuto</p>
+        <p class="hero__price">A partir de <strong>R$&nbsp;590</strong> · pagamento único · <strong>sem mensalidade</strong></p>
+
+        <ul class="hero__proof" aria-label="Diferenciais">
+          <li>Autorizada Google</li>
+          <li>Tours reais no Google Maps</li>
+          <li>Publicação permanente</li>
+        </ul>
+        <!-- ⚠️ AJUSTAR (opcional): se o cliente confirmar o número real de
+             estabelecimentos publicados, troque um <li> acima por algo como
+             "+120 estabelecimentos publicados". NÃO inventar o número. -->
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ====================================================================== -->
+  <!-- 2. O PROBLEMA / A VIRADA                                               -->
+  <!-- ====================================================================== -->
+  <section class="section problem">
+    <div class="container narrow center">
+      <h2 class="section__title reveal">Quem pesquisa quer <span class="text-blue">ver antes de ir</span>.</h2>
+      <p class="section__lead reveal">
+        Antes de escolher uma academia, um restaurante ou uma clínica, o cliente abre o
+        Google e olha. Se o seu concorrente mostra o interior em 360º e você aparece com
+        uma ficha vazia, sem fotos por dentro, a decisão já foi tomada — e não foi a seu favor.
+      </p>
+      <p class="section__lead reveal">
+        Um tour virtual coloca o visitante <strong>dentro do seu espaço</strong> direto na busca.
+        Ele sente o ambiente, ganha confiança e chega até você praticamente decidido.
+      </p>
+
+      <ul class="segments reveal" aria-label="Segmentos atendidos">
+        <li>Academias</li>
+        <li>Restaurantes e cafés</li>
+        <li>Clínicas</li>
+        <li>Coworkings</li>
+        <li>Cartórios</li>
+        <li>Escolas</li>
+        <li>Concessionárias</li>
+        <li>Hotéis</li>
+        <li>Lojas</li>
+      </ul>
+      <p class="segments__note reveal">Todos já podem ter o interior no Google Maps em 360º.</p>
+
+      <a class="btn btn--whatsapp js-wa reveal"
+         data-wa-context="problema" data-track-label="cta_problema"
+         aria-label="Falar no WhatsApp sobre o tour virtual 360º">
+        <svg class="btn__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+        Quero aparecer na frente do concorrente
+      </a>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 4. DADOS / ROI (Ipsos MediaCT para o Google)                          -->
+  <!-- ====================================================================== -->
+  <section class="section section--alt data">
+    <div class="container">
+      <div class="center">
+        <h2 class="section__title reveal">Os números do Google falam por si.</h2>
+        <p class="section__lead reveal">Não é achismo. É comportamento de compra medido em escala.</p>
+      </div>
+
+      <div class="data__grid">
+        <div class="stat reveal">
+          <span class="stat__num" data-count="41" data-suffix="%">41%</span>
+          <p class="stat__desc">das buscas no Google Maps resultam em <strong>visita ao local</strong>.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="62" data-suffix="%">62%</span>
+          <p class="stat__desc">preferem fichas que mostram <strong>fotos do interior</strong>.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num">2x</span>
+          <p class="stat__desc">mais probabilidade de gerar interesse — e <strong>29% mais chance de compra</strong>.</p>
+        </div>
+        <div class="stat reveal">
+          <span class="stat__num" data-count="42" data-suffix="%">42%</span>
+          <p class="stat__desc">mais <strong>pedidos de rota</strong> para fichas com fotos.</p>
+        </div>
+      </div>
+
+      <p class="data__source reveal">Fonte: Estudo Ipsos MediaCT para o Google.</p>
+
+      <div class="center">
+        <a class="btn btn--whatsapp js-wa reveal"
+           data-wa-context="dados" data-track-label="cta_dados"
+           aria-label="Falar no WhatsApp para colocar meu negócio nesses números">
+          <svg class="btn__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+          Quero esses resultados
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 5. COMO FUNCIONA (4 passos)                                            -->
+  <!-- ====================================================================== -->
+  <section class="section how">
+    <div class="container">
+      <div class="center">
+        <h2 class="section__title reveal">Como funciona na prática</h2>
+        <p class="section__lead reveal">Simples, rápido e sem dor de cabeça. Em 4 passos.</p>
+      </div>
+
+      <ol class="how__grid">
+        <li class="step reveal">
+          <span class="step__num" aria-hidden="true">1</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="#1A73E8" stroke-width="1.8" stroke-linecap="round" d="M7 3v3m10-3v3M4 8h16M5 6h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"/><path fill="#1A73E8" d="m10.5 14 1.6 1.6 3-3.2"/></svg>
+          </span>
+          <h3 class="step__title">Você agenda pelo WhatsApp</h3>
+          <p class="step__desc">Escolhemos juntos o melhor horário — pode ser antes de abrir ou depois de fechar, sem atrapalhar o movimento.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num" aria-hidden="true">2</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="#1A73E8" stroke-width="1.8" d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2" fill="none" stroke="#1A73E8" stroke-width="1.8"/></svg>
+          </span>
+          <h3 class="step__title">O fotógrafo credenciado captura em 360º</h3>
+          <p class="step__desc">Rápido: a captação no local costuma levar menos de 30 minutos. Profissional autorizado pelo Google.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num" aria-hidden="true">3</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="#1A73E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m14 6 4 4M4 20l1-4L16 5a2 2 0 0 1 3 3L8 19l-4 1z"/></svg>
+          </span>
+          <h3 class="step__title">Edição profissional</h3>
+          <p class="step__desc">Imagens tratadas em Lightroom e Photoshop. Vídeos personalizados conforme o seu pacote.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num" aria-hidden="true">4</span>
+          <span class="step__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="none" stroke="#1A73E8" stroke-width="1.8" d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="#1A73E8" stroke-width="1.8"/></svg>
+          </span>
+          <h3 class="step__title">Publicação permanente no Google Maps</h3>
+          <p class="step__desc">O tour entra no Street View do seu perfil e fica no ar de forma permanente — sem mensalidade, sem taxa de manutenção.</p>
+        </li>
+      </ol>
+
+      <div class="center">
+        <a class="btn btn--whatsapp js-wa reveal"
+           data-wa-context="como_funciona" data-track-label="cta_como_funciona"
+           aria-label="Falar no WhatsApp para agendar o tour 360º">
+          <svg class="btn__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+          Agendar meu tour
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 6. GALERIA DE TOURS REAIS                                              -->
+  <!-- ====================================================================== -->
+  <section class="section section--alt gallery">
+    <div class="container">
+      <div class="center">
+        <h2 class="section__title reveal">Tours reais, publicados no Google.</h2>
+        <p class="section__lead reveal">Não é mockup. Clique e navegue por espaços que já estão no ar.</p>
+      </div>
+
+      <!-- Thumbnails .webp reais e otimizadas (assets/images/), com loading="lazy".
+           Os links abaixo são REAIS (extraídos do site institucional). -->
+      <div class="gallery__grid">
+
+        <a class="tour-card reveal" href="https://goo.gl/maps/jH2p1vk9M58bKJk57" target="_blank" rel="noopener" data-track-label="tour_companhia_athletica" aria-label="Ver tour real da Companhia Athletica (academia) no Google Maps — abre em nova aba">
+          <img class="tour-card__thumb" src="assets/images/ciaathletica.webp" alt="Tour virtual 360º (Street View) da academia Companhia Athletica no Google Maps" width="800" height="500" loading="lazy" decoding="async" />
+          <div class="tour-card__body">
+            <h3 class="tour-card__name">Companhia Athletica</h3>
+            <span class="tour-card__cat">Academia</span>
+            <span class="tour-card__link">Ver tour real no Google Maps <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <a class="tour-card reveal" href="https://goo.gl/maps/kPEXGrYg3cuVrKXn8" target="_blank" rel="noopener" data-track-label="tour_cartorio" aria-label="Ver tour real do 29º Tabelionato de Notas no Google Maps — abre em nova aba">
+          <img class="tour-card__thumb" src="assets/images/tabeliaodenotas.webp" alt="Tour virtual 360º (Street View) do cartório 29º Tabelionato de Notas no Google Maps" width="800" height="500" loading="lazy" decoding="async" style="object-position: 28% center;" />
+          <div class="tour-card__body">
+            <h3 class="tour-card__name">29º Tabelionato de Notas</h3>
+            <span class="tour-card__cat">Cartório</span>
+            <span class="tour-card__link">Ver tour real no Google Maps <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <a class="tour-card reveal" href="https://goo.gl/maps/6zkHBG5EDCZabGjo8" target="_blank" rel="noopener" data-track-label="tour_mater_dei" aria-label="Ver tour real do Colégio Mater Dei no Google Maps — abre em nova aba">
+          <img class="tour-card__thumb" src="assets/images/colegiomaterdei.webp" alt="Tour virtual 360º (Street View) da escola Colégio Mater Dei no Google Maps" width="800" height="500" loading="lazy" decoding="async" />
+          <div class="tour-card__body">
+            <h3 class="tour-card__name">Colégio Mater Dei</h3>
+            <span class="tour-card__cat">Escola</span>
+            <span class="tour-card__link">Ver tour real no Google Maps <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="center">
+        <a class="btn btn--whatsapp js-wa reveal"
+           data-wa-context="galeria" data-track-label="cta_galeria"
+           aria-label="Falar no WhatsApp e ter um tour como esses">
+          <svg class="btn__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+          Quero um tour assim
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 7. OFERTA / PROMOÇÃO + O QUE VOCÊ RECEBE (urgência real)               -->
+  <!-- ====================================================================== -->
+  <section class="section section--dark offer" id="oferta">
+    <div class="container">
+      <div class="center">
+        <!-- Cronômetro por sessão (mesmo relógio da faixa do topo) -->
+        <div class="promo-flag reveal" id="promo-flag">
+          <span class="promo-flag__pill">Oferta por tempo limitado</span>
+          <span class="promo-flag__text">esta condição expira em</span>
+          <span class="promo-flag__count flash-num" id="promo-countdown" aria-live="polite">01:00:00</span>
+        </div>
+        <!-- ⚠️ AJUSTAR: a duração do cronômetro está em script.js (FLASH_MINUTES).
+             É urgência por sessão (reinicia a cada reload), não um prazo real. -->
+
+        <h2 class="section__title reveal">Pacotes da campanha</h2>
+        <p class="section__lead reveal">Pagamento único. Sem mensalidade. Sem taxa de manutenção.</p>
+      </div>
+
+      <!-- ⚠️ AJUSTAR: valores e pacotes. Os preços riscados "de R$X" (.price-card__was)
+           são PLACEHOLDERS — troque pelo PREÇO REGULAR REAL (fora da promoção).
+           Desconto inventado é propaganda enganosa (CDC/Procon) e pode reprovar o
+           anúncio. Se não existir preço cheio real, REMOVA as linhas .price-card__was. -->
+      <div class="pricing">
+        <div class="price-card reveal">
+          <h3 class="price-card__name">Essencial</h3>
+          <p class="price-card__items">2 fotos 360º + 1 vídeo</p>
+          <p class="price-card__was">de <s>R$&nbsp;790</s> por</p>
+          <p class="price-card__value" aria-label="de 790 por 590 reais na promoção, pagamento único"><span class="price-card__cents" aria-hidden="true">R$</span> 590<span class="price-card__cents" aria-hidden="true">,00</span></p>
+          <p class="price-card__note">Preço promocional · pagamento único</p>
+          <a class="btn btn--whatsapp btn--block js-wa" data-wa-context="pacote_essencial" data-track-label="cta_pacote_essencial" aria-label="Começar pelo pacote Essencial no WhatsApp">Começar pelo Essencial</a>
+        </div>
+
+        <div class="price-card price-card--featured reveal">
+          <span class="price-card__tag">Mais escolhido</span>
+          <h3 class="price-card__name">Profissional</h3>
+          <p class="price-card__items">4 fotos 360º + 2 vídeos</p>
+          <p class="price-card__was">de <s>R$&nbsp;1.290</s> por</p>
+          <p class="price-card__value" aria-label="de 1290 por 980 reais na promoção, pagamento único"><span class="price-card__cents" aria-hidden="true">R$</span> 980<span class="price-card__cents" aria-hidden="true">,00</span></p>
+          <p class="price-card__note">Preço promocional · pagamento único</p>
+          <a class="btn btn--whatsapp btn--block js-wa" data-wa-context="pacote_profissional" data-track-label="cta_pacote_profissional" aria-label="Quero o pacote Profissional (mais escolhido) no WhatsApp">Quero o mais escolhido</a>
+        </div>
+
+        <div class="price-card reveal">
+          <h3 class="price-card__name">Completo</h3>
+          <p class="price-card__items">10 fotos 360º + 5 vídeos</p>
+          <p class="price-card__was">de <s>R$&nbsp;2.900</s> por</p>
+          <p class="price-card__value" aria-label="de 2900 por 2200 reais na promoção, pagamento único"><span class="price-card__cents" aria-hidden="true">R$</span> 2.200<span class="price-card__cents" aria-hidden="true">,00</span></p>
+          <p class="price-card__note">Preço promocional · pagamento único</p>
+          <a class="btn btn--whatsapp btn--block js-wa" data-wa-context="pacote_completo" data-track-label="cta_pacote_completo" aria-label="Quero cobertura total com o pacote Completo no WhatsApp">Quero cobertura total</a>
+        </div>
+      </div>
+
+      <!-- O que está incluído em todos os pacotes (entregáveis) -->
+      <div class="offer__includes reveal">
+        <p class="offer__includes-label">Em todos os pacotes você recebe — e <strong>os arquivos são seus</strong>:</p>
+        <ul class="offer__includes-list">
+          <li>Tour 360º navegável publicado no Google Maps</li>
+          <li>Fotos <strong>.jpg</strong> em altíssima resolução (7.296 × 3.648 px)</li>
+          <li>Vídeos <strong>.mp4</strong> (horizontal, quadrado e vertical) para redes</li>
+          <li>Uso livre — site, redes, impressão, óculos de VR e Google Earth</li>
+        </ul>
+      </div>
+
+      <!-- Pacote parcelado em destaque (⚠️ AJUSTAR: confirmar se entra na campanha) -->
+      <div class="offer__extra reveal">
+        <strong>Quer o máximo de cobertura?</strong> Até <strong>15 panoramas + 10 vídeos</strong> em
+        <strong>4× de R$ 740,00</strong> (total R$ 2.960,00) — sem taxa de manutenção.
+      </div>
+
+      <div class="center">
+        <a class="btn btn--whatsapp btn--lg js-wa reveal"
+           data-wa-context="oferta" data-track-label="cta_oferta"
+           aria-label="Garantir este valor pelo WhatsApp">
+          <svg class="btn__wa-icon" width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg>
+          GARANTIR ESTE VALOR PELO WHATSAPP
+        </a>
+        <p class="cta-reassure">Resposta no mesmo dia · Sem compromisso · Leva 1 minuto</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 9. FAQ                                                                 -->
+  <!-- ====================================================================== -->
+  <section class="section faq">
+    <div class="container narrow">
+      <div class="center">
+        <h2 class="section__title reveal">Perguntas frequentes</h2>
+        <p class="section__lead reveal">Tirou a dúvida? Chame no WhatsApp e a gente resolve o resto.</p>
+      </div>
+
+      <div class="accordion">
+        <div class="faq-item reveal">
+          <h3 class="faq-item__h">
+            <button class="faq-item__q" id="faq-q-1" aria-expanded="false" aria-controls="faq-a-1">
+              <span>Quanto tempo dura a publicação? Preciso renovar ou pagar algo depois?</span>
+              <svg class="faq-item__chev" width="20" height="20" aria-hidden="true"><use href="#ic-chev"/></svg>
+            </button>
+          </h3>
+          <div class="faq-item__a" id="faq-a-1" role="region" aria-labelledby="faq-q-1" hidden><p>A publicação é <strong>permanente</strong>, sem custos fixos posteriores. O tour fica integrado ao Street View e distribuído na plataforma do Google indefinidamente, conforme os termos do Google. Não há mensalidade nem taxa de manutenção.</p></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <h3 class="faq-item__h">
+            <button class="faq-item__q" id="faq-q-2" aria-expanded="false" aria-controls="faq-a-2">
+              <span>De quem são as imagens? Como é a entrega?</span>
+              <svg class="faq-item__chev" width="20" height="20" aria-hidden="true"><use href="#ic-chev"/></svg>
+            </button>
+          </h3>
+          <div class="faq-item__a" id="faq-a-2" role="region" aria-labelledby="faq-q-2" hidden><p>Todos os arquivos <strong>pertencem ao cliente</strong>. Cada panorama é entregue em <strong>.jpg com 7.296 × 3.648 px</strong> e os vídeos em <strong>.mp4</strong> nos formatos horizontal (1.328×746), quadrado (736×736) e vertical (736×1.310).</p></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <h3 class="faq-item__h">
+            <button class="faq-item__q" id="faq-q-4" aria-expanded="false" aria-controls="faq-a-4">
+              <span>Quanto tempo demora?</span>
+              <svg class="faq-item__chev" width="20" height="20" aria-hidden="true"><use href="#ic-chev"/></svg>
+            </button>
+          </h3>
+          <div class="faq-item__a" id="faq-a-4" role="region" aria-labelledby="faq-q-4" hidden><p>A captação no local geralmente leva <strong>menos de 30 minutos</strong>. Depois vem o processamento em Lightroom, a edição em Photoshop e a montagem do tour com os links internos entre os panoramas.</p></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <h3 class="faq-item__h">
+            <button class="faq-item__q" id="faq-q-5" aria-expanded="false" aria-controls="faq-a-5">
+              <span>Onde mais posso usar as imagens?</span>
+              <svg class="faq-item__chev" width="20" height="20" aria-hidden="true"><use href="#ic-chev"/></svg>
+            </button>
+          </h3>
+          <div class="faq-item__a" id="faq-a-5" role="region" aria-labelledby="faq-q-5" hidden><p>Além do Google Maps, as imagens ficam disponíveis no <strong>Google Earth</strong> e podem ser usadas em <strong>óculos de VR</strong>, redes sociais, site e impressão. Os vídeos servem para website, redes e mensagens.</p></div>
+        </div>
+
+        <div class="faq-item reveal">
+          <h3 class="faq-item__h">
+            <button class="faq-item__q" id="faq-q-7" aria-expanded="false" aria-controls="faq-a-7">
+              <span>As fotos antigas do carro do Street View atrapalham?</span>
+              <svg class="faq-item__chev" width="20" height="20" aria-hidden="true"><use href="#ic-chev"/></svg>
+            </button>
+          </h3>
+          <div class="faq-item__a" id="faq-a-7" role="region" aria-labelledby="faq-q-7" hidden><p>As fotos novas ganham evidência: imagens recentes aparecem em destaque. O Street View mantém o histórico arquivado por data, mas o posicionamento do que aparece primeiro é definido pelo algoritmo do Google.</p></div>
+        </div>
+      </div>
+
+      <div class="center">
+        <a class="btn btn--whatsapp js-wa reveal"
+           data-wa-context="faq" data-track-label="cta_faq"
+           aria-label="Falar com um especialista no WhatsApp">
+          <svg class="btn__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+          Falar com um especialista agora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 10. CTA FINAL                                                          -->
+  <!-- ====================================================================== -->
+  <section class="section section--dark final-cta">
+    <div class="container narrow center">
+      <span class="badge-authority reveal">
+        <svg class="badge-authority__icon" width="18" height="18" aria-hidden="true"><use href="#ic-google"/></svg>
+        Autorizada Google Street View · Trusted Photographer
+      </span>
+      <h2 class="final-cta__title reveal">Apresente sua empresa a novos clientes com um Tour 360º no Google Maps.</h2>
+      <p class="final-cta__sub reveal">Publicação permanente. Os arquivos são seus. Sem mensalidade.</p>
+      <a class="btn btn--whatsapp btn--lg js-wa reveal"
+         data-wa-context="final" data-track-label="cta_final"
+         aria-label="Começar agora pelo WhatsApp">
+        <svg class="btn__wa-icon" width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg>
+        QUERO MEU TOUR 360º
+      </a>
+      <p class="cta-reassure">Resposta no mesmo dia · Sem compromisso · Leva 1 minuto</p>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- 11. RODAPÉ                                                             -->
+  <!-- ====================================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <span class="footer__logo">Supervisão<span class="text-blue">360</span></span>
+        <p class="footer__tag">Autorizada Google Street View · Trusted Photographer</p>
+        <!-- ⚠️ ASSET: badge oficial trusted_photographer_google_maps_street_view.png -->
+      </div>
+
+      <div class="footer__contact">
+        <p class="footer__contact-label">Atendimento da campanha</p>
+        <!-- ⚠️ AJUSTAR: confirmar qual número usar na campanha (atual: SP).
+             O texto visível abaixo deve casar com WHATSAPP_PHONE em script.js. -->
+        <a class="footer__wa js-wa" data-wa-context="rodape" data-track-label="cta_rodape" aria-label="Falar no WhatsApp (11) 99577-0360">
+          <svg class="footer__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+          (11) 99577-0360
+        </a>
+      </div>
+
+      <div class="footer__social">
+        <p class="footer__contact-label">Siga a Supervisão 360</p>
+        <div class="footer__social-icons">
+          <a href="https://www.instagram.com/supervisaogoogle360/" target="_blank" rel="noopener" aria-label="Instagram da Supervisão 360 (abre em nova aba)">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5.4"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@supervisao360" target="_blank" rel="noopener" aria-label="YouTube da Supervisão 360 (abre em nova aba)">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5C.5 9.4.5 12 .5 12s0 2.6.5 4.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-4.5.5-4.5s0-2.6-.5-4.5zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/supervisao360" target="_blank" rel="noopener" aria-label="Facebook da Supervisão 360 (abre em nova aba)">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/supervisao360/" target="_blank" rel="noopener" aria-label="LinkedIn da Supervisão 360 (abre em nova aba)">
+            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="footer__legal">© 2026 Supervisão 360 — Autorizada Google Street View. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp (aparece após o 1º scroll) -->
+  <a class="wa-float js-wa" id="wa-float"
+     data-wa-context="flutuante" data-track-label="cta_flutuante"
+     aria-label="Falar no WhatsApp">
+    <svg class="wa-float__icon" width="30" height="30" aria-hidden="true"><use href="#ic-wa"/></svg>
+    <span class="wa-float__label">Quero meu tour 360º</span>
+  </a>
+
+  <!-- ====================================================================== -->
+  <!-- PIXELS (corpo) — ⚠️ AJUSTAR: cole aqui scripts que pedem tag antes de  -->
+  <!-- </body> (ex.: Google Ads remarketing), se necessário.                 -->
+  <!-- ====================================================================== -->
+
+  <script src="script.js" defer></script>
+</body>
+</html>

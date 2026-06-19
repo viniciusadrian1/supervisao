@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ====================================================================== -->
+  <!-- VARIANTE B (teste A/B) — versão enxuta de 2 dobras.                    -->
+  <!-- ⚠️ noindex enquanto for variante de teste (evita conteúdo duplicado   -->
+  <!--    com a versão A). Remova se quiser indexar.                         -->
+  <!-- ====================================================================== -->
+  <meta name="robots" content="noindex, follow" />
+
+  <title>Tour Virtual 360º no Google Maps · Street View | Supervisão 360</title>
+  <meta name="description" content="Tour virtual 360º no perfil da sua empresa no Google Maps. Fichas com fotos recebem 42% mais pedidos de rota. Autorizada Google Street View. Sem mensalidade." />
+  <!-- ⚠️ AJUSTAR: domínio final em canonical/og -->
+  <link rel="canonical" href="https://supervisao.com.br/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Supervisão 360" />
+  <meta property="og:title" content="Sua empresa por dentro do Google Maps — em 360º" />
+  <meta property="og:description" content="Tour virtual imersivo no seu perfil do Google. Mais visitas, mais clientes. Autorizada Google Street View. Sem mensalidade." />
+  <meta property="og:image" content="https://supervisao.com.br/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://supervisao.com.br/index-b.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sua empresa por dentro do Google Maps — em 360º" />
+  <meta name="twitter:description" content="Tour virtual imersivo no seu perfil do Google. Autorizada Google Street View." />
+  <meta name="twitter:image" content="https://supervisao.com.br/assets/og-image.jpg" />
+
+  <meta name="theme-color" content="#0E1116" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <!-- Fonts: preconnect + carregamento não-bloqueante; só os pesos usados -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@700;800&display=swap" /></noscript>
+
+  <link rel="stylesheet" href="style-b.css" />
+
+  <!-- ===== Meta Pixel — ⚠️ AJUSTAR: SEU_PIXEL_ID (mesmos IDs da versão A) ===== -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','SEU_PIXEL_ID'); fbq('track','PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+  -->
+
+  <!-- ===== Google Tag (gtag.js) — ⚠️ AJUSTAR: G-XXXXXXX ===== -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date()); gtag('config', 'G-XXXXXXX');
+  </script>
+  -->
+
+  <!-- Dados estruturados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Supervisão 360",
+    "description": "Autorizada Google Street View (Trusted Photographer). Tours virtuais 360º publicados no Google Maps para estabelecimentos físicos.",
+    "url": "https://supervisao.com.br/",
+    "telephone": "+5511995770360",
+    "image": "https://supervisao.com.br/assets/og-image.jpg",
+    "sameAs": [
+      "https://www.instagram.com/supervisaogoogle360/",
+      "https://www.youtube.com/@supervisao360",
+      "https://www.facebook.com/supervisao360",
+      "https://www.linkedin.com/company/supervisao360/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- SPRITE DE ÍCONES (1x, reutilizado via <use>) -->
+  <svg aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ic-wa" viewBox="0 0 32 32">
+      <path fill="currentColor" d="M16 .4C7.4.4.5 7.3.5 15.9c0 2.8.7 5.4 2 7.7L.4 31.6l8.2-2.1c2.2 1.2 4.8 1.9 7.4 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.4 16 .4zm0 28.3c-2.4 0-4.6-.6-6.6-1.8l-.5-.3-4.9 1.3 1.3-4.8-.3-.5a12.7 12.7 0 0 1-2-6.9C3 9 8.8 3.3 16 3.3S29 9 29 16.1 23.2 28.7 16 28.7zm7.1-9.5c-.4-.2-2.3-1.1-2.6-1.3-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.2 1.5-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3.1-1.9-1.1-1-1.9-2.3-2.2-2.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7-.1-.2-.9-2.1-1.2-2.9-.3-.8-.6-.7-.9-.7h-.7c-.2 0-.6.1-1 .5-.3.4-1.3 1.3-1.3 3.1s1.3 3.6 1.5 3.9c.2.2 2.6 4 6.3 5.6.9.4 1.6.6 2.1.8.9.3 1.7.2 2.3.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5z"/>
+    </symbol>
+    <symbol id="ic-google" viewBox="0 0 24 24">
+      <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/>
+      <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.99.66-2.26 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/>
+      <path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/>
+      <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84C6.71 7.3 9.14 5.38 12 5.38z"/>
+    </symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="11" fill="#1FB855"/>
+      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m7 12.5 3.2 3.2L17 8.5"/>
+    </symbol>
+    <!-- Pin de localização do Google Maps (vermelho oficial) -->
+    <symbol id="ic-pin" viewBox="0 0 24 24">
+      <path fill="#EA4335" d="M12 2C7.86 2 4.5 5.36 4.5 9.5c0 5.05 6.02 10.54 7.04 11.43a.7.7 0 0 0 .92 0C13.48 20.04 19.5 14.55 19.5 9.5 19.5 5.36 16.14 2 12 2z"/>
+      <circle cx="12" cy="9.5" r="2.7" fill="#fff"/>
+    </symbol>
+    <!-- "Pegman" do Street View (boneco amarelo) -->
+    <symbol id="ic-pegman" viewBox="0 0 24 24">
+      <circle cx="12" cy="5.5" r="3.2" fill="#F9AB00"/>
+      <path fill="#F9AB00" d="M12 9.5c-3.3 0-5.5 2.4-5.5 5.6 0 1 .8 1.4 1.5 1.4.1 1.8.3 3.6.6 5.1.1.5.5.9 1 .9h4.8c.5 0 .9-.4 1-.9.3-1.5.5-3.3.6-5.1.7 0 1.5-.4 1.5-1.4 0-3.2-2.2-5.6-5.5-5.6z"/>
+    </symbol>
+  </svg>
+
+  <!-- Faixa de urgência: cronômetro por sessão (FLASH_MINUTES em script-b.js) -->
+  <div class="promo-bar" id="promo-bar">
+    ⚡ <strong>Oferta expira em <span id="flash-countdown" class="flash-num">01:00:00</span></strong>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- DOBRA 1 — HERO (escuro)                                                -->
+  <!-- ====================================================================== -->
+  <header class="hero" id="topo">
+    <!-- Motivo de "mapa": ruas + rota azul (Google Maps) + pins, bem sutil -->
+    <div class="hero__map" aria-hidden="true">
+      <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+        <g stroke="#6E8FC0" stroke-width="2" fill="none" opacity=".14">
+          <path d="M-20 64 H420"/><path d="M-20 150 H420"/><path d="M-20 232 H420"/>
+          <path d="M84 -20 V320"/><path d="M208 -20 V320"/><path d="M324 -20 V320"/>
+        </g>
+        <path d="M64 258 C 120 190, 184 210, 212 146 S 300 74, 344 58" fill="none" stroke="#4285F4" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+        <use href="#ic-pin" x="51" y="236" width="26" height="26" opacity=".55"/>
+        <use href="#ic-pin" x="331" y="40" width="26" height="26" opacity=".55"/>
+      </svg>
+    </div>
+    <div class="container">
+      <span class="badge-authority">
+        <svg class="badge-authority__icon" width="18" height="18" aria-hidden="true"><use href="#ic-google"/></svg>
+        Autorizada Google Street View · Trusted Photographer
+      </span>
+      <!-- ⚠️ ASSET: trocar pelo badge oficial trusted_photographer_google_maps_street_view.png -->
+      <span class="gbar" aria-hidden="true"></span>
+
+      <h1 class="hero__title">
+        Sua empresa por dentro do Google&nbsp;Maps — <span class="text-grad">em 360º.</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Fichas com fotos recebem <strong>42% mais pedidos de rota</strong>. Coloque um
+        tour virtual no seu perfil do Google e seja a escolha óbvia da região.
+      </p>
+
+      <!-- href de fallback (funciona sem JS); o script enriquece com a mensagem completa -->
+      <a class="btn btn--whatsapp btn--lg js-wa" href="https://wa.me/5511995770360"
+         data-wa-context="hero" data-track-label="cta_hero"
+         aria-label="Falar no WhatsApp e pedir meu Tour Virtual 360º">
+        <svg class="btn__wa-icon" width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg>
+        QUERO MEU TOUR 360º
+      </a>
+      <p class="cta-reassure">Resposta no mesmo dia · Sem compromisso · Leva 1 minuto</p>
+      <p class="hero__price">A partir de <strong>R$&nbsp;590</strong> · pagamento único · <strong>sem mensalidade</strong></p>
+
+      <ul class="trust" aria-label="Diferenciais">
+        <li>Autorizada Google</li>
+        <li>Tours reais no Google Maps</li>
+        <li>Publicação permanente</li>
+      </ul>
+
+      <p class="partner">
+        <svg class="partner__icon" width="24" height="24" aria-hidden="true"><use href="#ic-pegman"/></svg>
+        <span>Somos <strong>parceiros credenciados do Google</strong> — captamos e publicamos seu espaço direto no <strong>Street View</strong> do seu perfil no Maps.</span>
+      </p>
+    </div>
+  </header>
+
+  <!-- ====================================================================== -->
+  <!-- DOBRA 2 — PROVA + OFERTA + FECHAMENTO (claro)                          -->
+  <!-- ====================================================================== -->
+  <main class="fold2">
+    <div class="container">
+
+      <h2 class="fold2__title"><svg class="fold2__pin" width="26" height="26" aria-hidden="true"><use href="#ic-pin"/></svg>Tours reais, já no <span class="text-blue">Google&nbsp;Maps</span>.</h2>
+      <p class="fold2__lead">Não é mockup — clique no pin e navegue por espaços que já estão no ar.</p>
+
+      <!-- ⚠️ ANTES DE PUBLICAR: confirmar os links (goo.gl foi descontinuado pelo
+           Google) e trocar pelas URLs atuais maps.app.goo.gl de cada perfil. -->
+      <div class="proof">
+        <a class="proof__item" href="https://goo.gl/maps/jH2p1vk9M58bKJk57" target="_blank" rel="noopener" data-track-label="tour_companhia_athletica" aria-label="Ver tour real da academia Companhia Athletica no Google Maps — abre em nova aba">
+          <span class="proof__thumb">
+            <img src="assets/images/ciaathletica.webp" alt="Tour virtual 360º (Street View) da academia Companhia Athletica no Google Maps" width="800" height="500" loading="lazy" decoding="async" />
+            <span class="proof__pin"><svg width="22" height="22" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+            <span class="proof__sv"><svg width="15" height="15" aria-hidden="true"><use href="#ic-pegman"/></svg>360°</span>
+          </span>
+          <span class="proof__name">Companhia Athletica</span>
+        </a>
+        <a class="proof__item" href="https://goo.gl/maps/kPEXGrYg3cuVrKXn8" target="_blank" rel="noopener" data-track-label="tour_cartorio" aria-label="Ver tour real do cartório 29º Tabelionato de Notas no Google Maps — abre em nova aba">
+          <span class="proof__thumb">
+            <img src="assets/images/tabeliaodenotas.webp" alt="Tour virtual 360º (Street View) do cartório 29º Tabelionato de Notas no Google Maps" width="800" height="500" loading="lazy" decoding="async" style="object-position: 28% center;" />
+            <span class="proof__pin"><svg width="22" height="22" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+            <span class="proof__sv"><svg width="15" height="15" aria-hidden="true"><use href="#ic-pegman"/></svg>360°</span>
+          </span>
+          <span class="proof__name">29º Tabelionato de Notas</span>
+        </a>
+        <a class="proof__item" href="https://goo.gl/maps/6zkHBG5EDCZabGjo8" target="_blank" rel="noopener" data-track-label="tour_mater_dei" aria-label="Ver tour real da escola Colégio Mater Dei no Google Maps — abre em nova aba">
+          <span class="proof__thumb">
+            <img src="assets/images/colegiomaterdei.webp" alt="Tour virtual 360º (Street View) da escola Colégio Mater Dei no Google Maps" width="800" height="500" loading="lazy" decoding="async" />
+            <span class="proof__pin"><svg width="22" height="22" aria-hidden="true"><use href="#ic-pin"/></svg></span>
+            <span class="proof__sv"><svg width="15" height="15" aria-hidden="true"><use href="#ic-pegman"/></svg>360°</span>
+          </span>
+          <span class="proof__name">Colégio Mater Dei</span>
+        </a>
+      </div>
+
+      <!-- Oferta única destacada (1 pacote = menos fricção de decisão) -->
+      <!-- ⚠️ AJUSTAR: o preço riscado "de R$ 1.290" é PLACEHOLDER. Use o preço
+           REGULAR REAL (fora da promoção) ou REMOVA o riscado (.offer-card__was).
+           Desconto inventado é propaganda enganosa (CDC/Procon). -->
+      <div class="offer-card">
+        <span class="offer-card__tag">Mais escolhido</span>
+        <h3 class="offer-card__name">Pacote Profissional</h3>
+        <p class="offer-card__items">4 fotos 360º + 2 vídeos</p>
+        <p class="offer-card__was">de <s>R$&nbsp;1.290</s> por</p>
+        <p class="offer-card__value" aria-label="de 1290 por 980 reais na promoção, pagamento único"><span class="offer-card__cents" aria-hidden="true">R$</span> 980<span class="offer-card__cents" aria-hidden="true">,00</span></p>
+        <p class="offer-card__note"><svg class="inline-pin" width="16" height="16" aria-hidden="true"><use href="#ic-pin"/></svg> Publicado no <strong>Google Maps</strong> · pagamento único · sem mensalidade · <strong>os arquivos são seus</strong></p>
+        <a class="btn btn--whatsapp btn--block btn--lg js-wa" href="https://wa.me/5511995770360"
+           data-wa-context="oferta" data-track-label="cta_oferta"
+           aria-label="Quero o pacote Profissional pelo WhatsApp">
+          <svg class="btn__wa-icon" width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg>
+          QUERO ESTE PACOTE
+        </a>
+        <p class="cta-reassure">Resposta no mesmo dia · Sem compromisso · Leva 1 minuto</p>
+        <a class="offer-card__other js-wa" href="https://wa.me/5511995770360" data-wa-context="outros" data-track-label="cta_outros_pacotes" aria-label="Ver outros pacotes no WhatsApp">Ver outros pacotes (a partir de R$ 590)</a>
+      </div>
+
+      <p class="offer-urgency">⚡ Garanta antes que expire: <strong class="flash-num" id="promo-countdown">01:00:00</strong></p>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ MÍNIMO -->
+  <footer class="footer">
+    <div class="container">
+      <span class="footer__logo">Supervisão<span class="text-blue">360</span></span>
+      <p class="footer__tag">Autorizada Google Street View · Trusted Photographer</p>
+      <a class="footer__wa js-wa" href="https://wa.me/5511995770360" data-wa-context="rodape" data-track-label="cta_rodape" aria-label="Falar no WhatsApp (11) 99577-0360">
+        <svg class="footer__wa-icon" width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg>
+        (11) 99577-0360
+      </a>
+      <p class="footer__legal">© 2026 Supervisão 360 — Autorizada Google Street View. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botão flutuante de WhatsApp (aparece após o 1º scroll) -->
+  <a class="wa-float js-wa" id="wa-float" href="https://wa.me/5511995770360"
+     data-wa-context="flutuante" data-track-label="cta_flutuante"
+     aria-label="Falar no WhatsApp">
+    <svg class="wa-float__icon" width="30" height="30" aria-hidden="true"><use href="#ic-wa"/></svg>
+    <span class="wa-float__label">Quero meu tour 360º</span>
+  </a>
+
+  <script src="script-b.js" defer></script>
+</body>
+</html>

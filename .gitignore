@@ -1,0 +1,11 @@
+# Config local do Claude Code (não vai pro deploy)
+.claude/
+
+# Junk de SO / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dependências / logs (caso adicione build no futuro)
+node_modules/
+*.log

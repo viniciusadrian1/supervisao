@@ -1,0 +1,258 @@
+/* =====================================================================
+   SUPERVISÃO 360 — Landing Page B (variante de teste A/B)
+   Versão enxuta de 2 dobras. Mesma marca da versão A.
+   ===================================================================== */
+
+/* ----------------------------- TOKENS -------------------------------- */
+:root {
+  --ink:       #0E1116;
+  --ink-2:     #11161D;
+  --paper:     #FFFFFF;
+  --paper-2:   #F5F7FA;
+  --wa:        #25D366;
+  --wa-hover:  #1FB855;
+  --blue:      #1A73E8;
+  --blue-soft: #E8F0FE;
+  --amber:     #FF8A00;
+  --text:      #0E1116;
+  --text-soft: #46505C;
+  --on-dark:   #FFFFFF;
+  --on-dark-2: #C9D1D9;
+  --radius:    14px;
+  --radius-lg: 20px;
+  --shadow:    0 6px 24px rgba(14,17,22,.08);
+  --shadow-lg: 0 18px 50px rgba(14,17,22,.16);
+  --maxw:      900px;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-head: 'Sora', var(--font-body);
+}
+
+/* ----------------------------- RESET --------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body); color: var(--text); background: var(--paper);
+  line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility; overflow-x: hidden;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+strong { font-weight: 700; }
+
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+.text-blue { color: var(--blue); }
+.text-grad {
+  background: linear-gradient(100deg, #4FC3FF 0%, #1A73E8 55%, #25D366 120%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ----------------------------- BOTÕES -------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  font-family: var(--font-head); font-weight: 700; font-size: 1rem; line-height: 1.1;
+  padding: 16px 26px; border-radius: 999px; border: 0; cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  text-align: center;
+}
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.btn--whatsapp {
+  background: var(--wa); color: #06351A;          /* texto escuro = contraste AA */
+  box-shadow: 0 8px 22px rgba(37,211,102,.35);
+}
+.btn--whatsapp:hover { background: var(--wa-hover); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37,211,102,.45); }
+.btn--whatsapp:active { transform: translateY(0); }
+.btn--lg { padding: 19px 34px; font-size: 1.1rem; }
+.btn--block { display: flex; width: 100%; }
+.btn__wa-icon { flex: 0 0 auto; }
+
+/* Microcopy de reassurança sob os CTAs */
+.cta-reassure { margin-top: 12px; font-size: .82rem; color: var(--text-soft); }
+.hero .cta-reassure, .offer-card .cta-reassure { color: var(--on-dark-2); }
+
+/* ----------------------- FAIXA DE URGÊNCIA --------------------------- */
+.promo-bar {
+  background: var(--amber); color: #2A1500; text-align: center;
+  font-size: .85rem; font-weight: 600; padding: 8px 16px; line-height: 1.3;
+}
+.promo-bar strong { font-weight: 800; }
+.flash-num { font-variant-numeric: tabular-nums; }
+
+/* ----------------------- SELO DE AUTORIDADE -------------------------- */
+.badge-authority {
+  display: inline-flex; align-items: center; gap: 11px;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16);
+  color: var(--on-dark); font-size: .82rem; font-weight: 600;
+  padding: 7px 16px 7px 9px; border-radius: 999px; backdrop-filter: blur(4px);
+}
+.badge-authority__icon {
+  flex: 0 0 auto; width: 26px; height: 26px;
+  background: #fff; border-radius: 50%; padding: 4px; box-shadow: 0 2px 6px rgba(0,0,0,.28);
+}
+
+/* =====================================================================
+   DOBRA 1 — HERO
+   ===================================================================== */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(26,115,232,.30), transparent 60%),
+    radial-gradient(700px 500px at 0% 110%, rgba(37,211,102,.14), transparent 55%),
+    var(--ink);
+  color: var(--on-dark); padding: 30px 0 48px; overflow: hidden; text-align: center;
+}
+.hero__map { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero__map svg { width: 100%; height: 100%; display: block; }
+.hero .container { position: relative; z-index: 1; max-width: 760px; }
+
+/* Barra com as 4 cores oficiais do Google (identidade Maps / parceria) */
+.gbar {
+  display: block; width: 60px; height: 4px; border-radius: 999px; margin: 14px auto 0;
+  background: linear-gradient(90deg, #4285F4 0 25%, #EA4335 25% 50%, #FBBC05 50% 75%, #34A853 75% 100%);
+}
+
+/* Linha de parceria com o Google (pegman do Street View) */
+.partner {
+  display: flex; align-items: center; gap: 10px; text-align: left;
+  max-width: 470px; margin: 22px auto 0;
+  background: rgba(66,133,244,.10); border: 1px solid rgba(66,133,244,.30);
+  padding: 10px 16px; border-radius: 12px; font-size: .86rem; color: var(--on-dark-2);
+}
+.partner strong { color: #fff; }
+.partner__icon { flex: 0 0 auto; }
+.hero__title {
+  font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(2.1rem, 8vw, 3.4rem); line-height: 1.07; letter-spacing: -.025em;
+  margin: 20px 0 0;
+}
+.hero__subtitle {
+  font-size: clamp(1.05rem, 3vw, 1.25rem); color: var(--on-dark-2);
+  margin: 18px auto 28px; max-width: 580px;
+}
+.hero__subtitle strong { color: #fff; }
+.hero .btn--whatsapp { box-shadow: 0 10px 30px rgba(37,211,102,.45); }
+.hero__price { margin-top: 12px; font-size: .95rem; color: var(--on-dark-2); }
+.hero__price strong { color: #fff; }
+
+.trust {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+  margin-top: 22px; font-size: .85rem; color: var(--on-dark-2);
+}
+.trust li { position: relative; padding-left: 20px; }
+.trust li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--wa); font-weight: 800; }
+
+/* =====================================================================
+   DOBRA 2 — PROVA + OFERTA
+   ===================================================================== */
+.fold2 { background: var(--paper-2); padding: 34px 0 40px; }
+.fold2__title {
+  text-align: center; font-family: var(--font-head); font-weight: 800;
+  font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.12; letter-spacing: -.02em;
+}
+.fold2__lead { text-align: center; color: var(--text-soft); margin: 8px auto 22px; max-width: 520px; }
+
+/* Prova: 3 miniaturas */
+.proof { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 26px; }
+.proof__item {
+  background: #fff; border: 1px solid #E7EBF0; border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow); transition: transform .18s ease, box-shadow .18s ease;
+}
+.proof__item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.proof__item:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.proof__item img { width: 100%; aspect-ratio: 16/10; object-fit: cover; display: block; }
+.proof__thumb { position: relative; display: block; }
+.proof__pin { position: absolute; top: 6px; left: 6px; line-height: 0; filter: drop-shadow(0 1px 2px rgba(0,0,0,.45)); }
+.proof__sv {
+  position: absolute; bottom: 6px; right: 6px;
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(11,14,19,.8); color: #fff;
+  font-family: var(--font-head); font-weight: 700; font-size: .72rem;
+  padding: 3px 9px 3px 6px; border-radius: 999px; line-height: 1;
+}
+/* pins inline (título da prova e nota da oferta) */
+.fold2__pin { vertical-align: -5px; margin-right: 5px; }
+.inline-pin { vertical-align: -3px; margin-right: 1px; }
+.proof__name {
+  display: block; font-family: var(--font-head); font-weight: 700;
+  font-size: clamp(.74rem, 2.4vw, .92rem); color: var(--text);
+  padding: 10px 8px; text-align: center; line-height: 1.2;
+}
+
+/* Oferta única (card escuro premium) */
+.offer-card {
+  position: relative; max-width: 440px; margin: 0 auto;
+  background: linear-gradient(180deg, rgba(37,211,102,.10), var(--ink-2));
+  border: 1px solid var(--wa); box-shadow: 0 0 0 2px var(--wa), var(--shadow-lg);
+  border-radius: var(--radius-lg); padding: 32px 26px 26px; text-align: center; color: var(--on-dark);
+}
+.offer-card__tag {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  background: var(--wa); color: #06351A; font-weight: 800; font-size: .76rem;
+  padding: 5px 16px; border-radius: 999px; white-space: nowrap;
+}
+.offer-card__name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--on-dark-2); text-transform: uppercase; letter-spacing: .06em; }
+.offer-card__items { margin: 8px 0 14px; color: #fff; font-size: 1.05rem; }
+.offer-card__was { font-size: .95rem; color: var(--on-dark-2); margin-bottom: 2px; }
+.offer-card__was s { color: #98A2B0; text-decoration-thickness: 1.5px; }
+.offer-card__value { font-family: var(--font-head); font-weight: 800; font-size: 3rem; line-height: 1; color: #fff; letter-spacing: -.02em; }
+.offer-card__cents { font-size: 1.1rem; font-weight: 700; color: var(--on-dark-2); vertical-align: middle; }
+.offer-card__note { max-width: 320px; margin: 14px auto 20px; color: var(--on-dark-2); font-size: .92rem; }
+.offer-card__note strong { color: #fff; }
+.offer-card__other {
+  display: inline-block; margin-top: 16px; font-weight: 600; font-size: .9rem;
+  color: var(--on-dark-2); text-decoration: underline; text-underline-offset: 3px;
+}
+.offer-card__other:hover { color: #fff; }
+
+.offer-urgency { text-align: center; margin-top: 18px; font-size: 1rem; color: var(--text); font-weight: 600; }
+.offer-urgency strong { color: #B85C00; }
+
+/* =====================================================================
+   RODAPÉ
+   ===================================================================== */
+.footer { background: #090B0F; color: var(--on-dark-2); padding: 24px 0 20px; text-align: center; }
+.footer__logo { font-family: var(--font-head); font-weight: 800; font-size: 1.4rem; color: #fff; }
+.footer__tag { font-size: .82rem; margin: 8px 0 14px; }
+.footer__wa { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: #fff; min-height: 44px; }
+.footer__wa:hover { color: var(--wa); }
+.footer__wa-icon { color: var(--wa); }
+.footer__legal { font-size: .78rem; color: #8B94A2; margin-top: 14px; }
+
+/* =====================================================================
+   BOTÃO FLUTUANTE
+   ===================================================================== */
+.wa-float {
+  position: fixed; right: 18px; bottom: 18px; z-index: 90;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--wa); color: #fff; padding: 14px; border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(37,211,102,.5);
+  opacity: 0; visibility: hidden; transform: translateY(20px) scale(.9);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s, background-color .2s;
+}
+.wa-float.is-visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.wa-float:hover { background: var(--wa-hover); }
+.wa-float:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.wa-float__label { display: none; font-family: var(--font-head); font-weight: 700; font-size: .95rem; padding-right: 6px; }
+.wa-float svg { animation: wa-pulse 2.6s ease-in-out infinite; }
+@keyframes wa-pulse { 0%,100% { transform: scale(1); } 12% { transform: scale(1.12); } 24% { transform: scale(1); } }
+
+/* =====================================================================
+   RESPONSIVO
+   ===================================================================== */
+@media (min-width: 560px) {
+  .wa-float__label { display: inline; }
+}
+@media (min-width: 768px) {
+  .hero { padding: 44px 0 60px; }
+  .fold2 { padding: 60px 0 66px; }
+  .proof { gap: 18px; }
+}
+
+/* =====================================================================
+   ACESSIBILIDADE — reduzir movimento
+   ===================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+  .wa-float svg { animation: none; }
+}
