@@ -53,8 +53,9 @@
   <!-- O disparo de conversão no clique do WhatsApp está em script.js         -->
   <!-- ====================================================================== -->
 
-  <!-- ===== Meta Pixel (Facebook) — ⚠️ AJUSTAR: substitua SEU_PIXEL_ID ===== -->
-  <!--
+  <!-- ===== Meta Pixel (Facebook) — ATIVO · ID 1509049053476848 ===== -->
+  <!-- PageView dispara aqui; o evento "Contact" (clique no WhatsApp) sai de
+       script-a.js -> trackConversion(). -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -64,12 +65,11 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'SEU_PIXEL_ID');
+    fbq('init', '1509049053476848');
     fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-  -->
+    src="https://www.facebook.com/tr?id=1509049053476848&ev=PageView&noscript=1"/></noscript>
 
   <!-- ===== Google Tag (gtag.js) — ⚠️ AJUSTAR: substitua G-XXXXXXX ===== -->
   <!--
