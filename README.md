@@ -15,17 +15,27 @@ não o checkout.
 
 ```
 LPSupervisao/
-├── index.html              # Toda a página (seções 1–11)
-├── style.css               # Identidade visual + responsivo (mobile-first)
-├── script.js               # WhatsApp, pixels, acordeão, animações, countdown
+├── index-a.html            # Versão A (completa) — página inteira
+├── style-a.css             # CSS da versão A
+├── script-a.js             # JS da versão A (WhatsApp, pixels, countdown, etc.)
+├── index-b.html            # Versão B (enxuta, 2 dobras) — teste A/B
+├── style-b.css             # CSS da versão B
+├── script-b.js             # JS da versão B
+├── vercel.json             # Deploy estático (URLs limpas + raiz → versão A)
 ├── README.md               # Este arquivo
-└── assets/
-    ├── favicon.svg         # Ícone do site
-    ├── og-image.svg        # Capa de compartilhamento (exportar p/ .jpg)
+└── assets/                 # Compartilhados pelas duas versões
+    ├── favicon.svg
+    ├── og-image.jpg        # Capa de compartilhamento (Open Graph)
+    ├── images/             # Thumbnails .webp dos tours (+ .png originais)
     └── README-assets.md    # Guia dos placeholders a substituir
 ```
 
 Sem build, sem dependências, sem `npm install`. É HTML/CSS/JS puro.
+
+### Teste A/B — duas versões
+- **Versão A** (`index-a.html`): a landing completa.
+- **Versão B** (`index-b.html`): variante enxuta de 2 dobras, com reforço da identidade Google Maps.
+- No deploy (Vercel), a raiz `/` serve a **A**; a **B** fica em **`/index-b`**. Os arquivos `*-a` e `*-b` são independentes e compartilham a pasta `assets/`.
 
 ### Por que **não** usei Tailwind CDN?
 O briefing pede **Core Web Vitals altíssimos** (melhor Quality Score no anúncio).
@@ -55,7 +65,7 @@ fazendo um build local com purge — mas não recomendo para esta LP de campanha
 
 É um site estático. Qualquer uma das opções:
 
-- **Mais simples:** dê duplo clique em `index.html` (abre no navegador).
+- **Mais simples:** dê duplo clique em `index-a.html` (abre no navegador).
 - **Com servidor local** (recomendado p/ testar tudo certinho):
 
 ```bash
@@ -79,7 +89,7 @@ Funciona em qualquer hospedagem estática:
 - **Vercel:** `vercel` na pasta (ou arraste no dashboard). Zero config.
 - **Netlify:** arraste a pasta em app.netlify.com/drop.
 - **Cloudflare Pages / GitHub Pages / hospedagem comum:** suba os arquivos
-  mantendo a pasta `assets/` ao lado do `index.html`.
+  mantendo a pasta `assets/` ao lado do `index-a.html`.
 
 ---
 
@@ -87,7 +97,7 @@ Funciona em qualquer hospedagem estática:
 
 Tudo que muda está **comentado e centralizado**. Resumo:
 
-### 1) Link do WhatsApp — `script.js`, bloco `CONFIG` (topo)
+### 1) Link do WhatsApp — `script-a.js`, bloco `CONFIG` (topo)
 ```js
 const WHATSAPP_PHONE = "5511995770360"; // ⚠️ número da campanha (só dígitos)
 const WHATSAPP_UTM   = "";              // ⚠️ opcional: "&utm_source=meta&utm_medium=cpc&..."
@@ -97,34 +107,34 @@ const WHATSAPP_UTM   = "";              // ⚠️ opcional: "&utm_source=meta&ut
 - As mensagens pré-preenchidas por contexto ficam em `WHATSAPP_MSGS` (mesmo arquivo).
   Todas já sinalizam que **"vim pelo anúncio"** (ajuda a qualificar o lead/bot).
 
-### 2) Pixels de rastreamento — `index.html` (`<head>`)
+### 2) Pixels de rastreamento — `index-a.html` (`<head>`)
 - Descomente o bloco **Meta Pixel** e troque `SEU_PIXEL_ID`.
 - Descomente o bloco **Google Tag (gtag.js)** e troque `G-XXXXXXX`.
 - **Não precisa mexer no JS:** todo clique de WhatsApp já dispara
   `Contact` (Meta) + `generate_lead` (Google) + um push no `dataLayer` (GTM).
-  Veja `trackConversion()` em `script.js`.
+  Veja `trackConversion()` em `script-a.js`.
 
-### 3) Promoção / prazo — `script.js`, `CONFIG`
+### 3) Promoção / prazo — `script-a.js`, `CONFIG`
 ```js
 const PROMO_DEADLINE = "2026-06-21T23:59:59-03:00"; // ⚠️ data real (horário de Brasília)
 ```
 - A contagem é **honesta**: conta até a data real e, ao expirar, **esconde** o
   bloco de prazo (não reinicia, não inventa urgência).
 - Sem promoção ativa? Deixe `PROMO_DEADLINE = ""` para esconder o selo.
-- Os **valores dos pacotes** estão na seção `#oferta` do `index.html`
+- Os **valores dos pacotes** estão na seção `#oferta` do `index-a.html`
   (procure `⚠️ AJUSTAR: valores e pacotes`).
 
-### 4) Número do rodapé — `index.html` (seção 11)
+### 4) Número do rodapé — `index-a.html` (seção 11)
 - O institucional tem 4 números (SP, Guarulhos, RJ, Vitória). A LP usa **um**
   (SP, atual). Confirme qual usar na campanha.
 
-### 5) SEO / Open Graph — `index.html` (`<head>`)
+### 5) SEO / Open Graph — `index-a.html` (`<head>`)
 - Ajuste `og:url` / `canonical` para o **domínio final**.
 - Exporte `assets/og-image.svg` → `assets/og-image.jpg` (ver `assets/README-assets.md`).
 
 ### 6) Assets reais (vídeo, badge Google, logos, thumbnails)
 - Veja **`assets/README-assets.md`** — tabela com cada placeholder e o que colocar.
-- Procure `⚠️ ASSET` no `index.html` para achar os pontos exatos.
+- Procure `⚠️ ASSET` no `index-a.html` para achar os pontos exatos.
 
 ---
 
@@ -147,8 +157,8 @@ Dica: mantenha os IDs de pixel iguais entre variantes para comparar maçãs com 
 
 ## ✅ Checklist de "pronto para publicar"
 
-- [ ] `WHATSAPP_PHONE` definido (humano ou bot) em `script.js`
-- [ ] IDs de Meta Pixel e Google Tag colados e descomentados em `index.html`
+- [ ] `WHATSAPP_PHONE` definido (humano ou bot) em `script-a.js`
+- [ ] IDs de Meta Pixel e Google Tag colados e descomentados em `index-a.html`
 - [ ] `PROMO_DEADLINE` confere com o prazo real (ou vazio se não houver promoção)
 - [ ] Valores/pacotes da seção de oferta confirmados
 - [ ] `og:url` / `canonical` / `og:image` com o **domínio final** (a `og-image.jpg` já existe como placeholder raster; troque pela arte do cliente se quiser)
