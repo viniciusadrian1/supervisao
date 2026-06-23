@@ -18,7 +18,7 @@ LPSupervisao/
 ├── index-a.html            # Versão A (completa) — página inteira
 ├── style-a.css             # CSS da versão A
 ├── script-a.js             # JS da versão A (WhatsApp, pixels, countdown, etc.)
-├── index-b.html            # Versão B (enxuta, 2 dobras) — teste A/B
+├── b.html                  # Versão B (enxuta, 2 dobras) — teste A/B → /b
 ├── style-b.css             # CSS da versão B
 ├── script-b.js             # JS da versão B
 ├── vercel.json             # Deploy estático (URLs limpas + raiz → versão A)
@@ -34,8 +34,8 @@ Sem build, sem dependências, sem `npm install`. É HTML/CSS/JS puro.
 
 ### Teste A/B — duas versões
 - **Versão A** (`index-a.html`): a landing completa.
-- **Versão B** (`index-b.html`): variante enxuta de 2 dobras, com reforço da identidade Google Maps.
-- No deploy (Vercel), a raiz `/` serve a **A**; a **B** fica em **`/index-b`**. Os arquivos `*-a` e `*-b` são independentes e compartilham a pasta `assets/`.
+- **Versão B** (`b.html`): variante enxuta de 2 dobras, com reforço da identidade Google Maps.
+- No deploy, a raiz `/` serve a **A** (`index-a.html`); a **B** fica em **`/b`** (`b.html`). Os arquivos compartilham a pasta `assets/`.
 
 ### Por que **não** usei Tailwind CDN?
 O briefing pede **Core Web Vitals altíssimos** (melhor Quality Score no anúncio).
