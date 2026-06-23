@@ -9,3 +9,7 @@ desktop.ini
 # Dependências / logs (caso adicione build no futuro)
 node_modules/
 *.log
+
+# Pacote de deploy gerado (FTP)
+*.zip
+_deploy/
