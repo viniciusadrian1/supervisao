@@ -150,10 +150,13 @@ strong { font-weight: 700; }
    ===================================================================== */
 .hero {
   position: relative;
-  background:
-    radial-gradient(900px 500px at 80% -10%, rgba(26,115,232,.30), transparent 60%),
-    radial-gradient(700px 500px at 0% 110%, rgba(37,211,102,.14), transparent 55%),
-    var(--ink);
+  background-color: var(--ink);                 /* fallback se a imagem faltar */
+  background-image:
+    radial-gradient(120% 100% at 50% 42%, rgba(14,17,22,.38) 0%, rgba(14,17,22,.52) 55%, rgba(14,17,22,.62) 100%),
+    url('assets/hero-map.webp');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   color: var(--on-dark);
   padding: 30px 0 56px;
   overflow: hidden;

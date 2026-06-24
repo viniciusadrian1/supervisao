@@ -13,3 +13,6 @@ node_modules/
 # Pacote de deploy gerado (FTP)
 *.zip
 _deploy/
+
+# Pasta de staging do deploy (FileZilla)
+PARA-SUBIR/
