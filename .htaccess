@@ -1,10 +1,14 @@
 # ===== Supervisão 360 — LPs (deploy em subdomínio Apache / Network Solutions) =====
 
-# A VERSÃO A abre na raiz do subdomínio (ex.: tour.supervisao.com.br)
-DirectoryIndex index-a.html
+# A VERSÃO A abre na raiz do subdomínio (ex.: lp.supervisao.com.br).
+# index.html é uma cópia da versão A — serve na raiz mesmo se este .htaccess
+# não for lido pelo host. index-a.html fica como fallback/acesso direto.
+DirectoryIndex index.html index-a.html
 
-# Não listar os arquivos da pasta
-Options -Indexes
+# Obs.: NÃO usamos "Options -Indexes" aqui de propósito. Em hosts compartilhados
+# restritos (ex.: Network Solutions) onde AllowOverride não permite Options, a
+# diretiva causaria HTTP 500 na pasta inteira. Como sempre existe um index.html,
+# o Apache nunca lista o diretório raiz mesmo sem essa linha.
 
 # URLs limpas: /index-b serve index-b.html (e /index-a serve index-a.html)
 <IfModule mod_rewrite.c>
