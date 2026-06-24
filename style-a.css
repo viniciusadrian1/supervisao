@@ -142,6 +142,8 @@ strong { font-weight: 700; }
   padding: 8px 16px; line-height: 1.3;
 }
 .promo-bar strong { font-weight: 800; }
+.promo-bar__auth { opacity: .85; }
+@media (max-width: 560px) { .promo-bar__auth { display: none; } }
 /* Números do cronômetro: largura fixa por dígito (não "pula" ao mudar) */
 .flash-num { font-variant-numeric: tabular-nums; }
 
@@ -333,6 +335,7 @@ strong { font-weight: 700; }
   padding: 5px 16px; border-radius: 999px; white-space: nowrap;
 }
 .price-card__name { font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; color: var(--on-dark-2); text-transform: uppercase; letter-spacing: .06em; }
+.price-card__sub { margin: 4px 0 0; color: var(--on-dark-2); font-size: .82rem; font-style: italic; }
 .price-card__items { margin: 10px 0 14px; color: #fff; font-size: 1.05rem; }
 /* Âncora de preço promocional (de/por) — ⚠️ valor riscado é placeholder real a confirmar */
 .price-card__was { font-size: .95rem; color: var(--on-dark-2); margin-bottom: 2px; }
