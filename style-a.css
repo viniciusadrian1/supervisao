@@ -200,6 +200,19 @@ strong { font-weight: 700; }
 .problem .section__lead { font-size: clamp(1.05rem, 2.8vw, 1.25rem); color: var(--text); margin-top: 22px; }
 .problem .btn { margin-top: 30px; }
 
+/* Layout 2 colunas: texto à esquerda + ficha do Google à direita */
+.problem__grid { display: grid; gap: 30px; align-items: center; }
+.problem__text { text-align: left; }
+.problem__text .segments { justify-content: flex-start; }
+.problem__visual { display: flex; justify-content: center; }
+.problem__ficha {
+  width: 100%; max-width: 360px; height: auto;
+  border-radius: 18px; box-shadow: 0 18px 50px rgba(14,17,22,.16);
+}
+@media (min-width: 880px) {
+  .problem__grid { grid-template-columns: 1.05fr .95fr; gap: 50px; }
+}
+
 /* Segmentos atendidos (pertencimento "isto é pra mim" + keywords) */
 .segments { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 28px 0 10px; }
 .segments li {
