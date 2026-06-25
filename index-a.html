@@ -48,6 +48,23 @@
 
   <link rel="stylesheet" href="style-a.css" />
 
+  <!-- CSS CRÍTICO INLINE: garante a seção "Problema" (2 colunas no desktop +
+       imagem na proporção certa) mesmo que o style-a.css do servidor esteja
+       desatualizado. Vem DEPOIS do link, então prevalece. -->
+  <style>
+    .problem__grid { display: grid; gap: 30px; align-items: center; }
+    .problem__text { text-align: left; }
+    .problem__visual { display: flex; justify-content: center; align-items: center; }
+    .problem__ficha {
+      width: 100%; max-width: 360px; height: auto;
+      aspect-ratio: 820 / 1230; object-fit: contain; align-self: center;
+      border-radius: 18px; box-shadow: 0 18px 50px rgba(14,17,22,.16);
+    }
+    @media (min-width: 880px) {
+      .problem__grid { grid-template-columns: 1.05fr .95fr; gap: 50px; }
+    }
+  </style>
+
   <!-- ====================================================================== -->
   <!-- PIXELS DE RASTREAMENTO  (⚠️ AJUSTAR: cole os IDs reais e descomente)    -->
   <!-- O disparo de conversão no clique do WhatsApp está em script.js         -->
@@ -232,7 +249,7 @@
       </div>
 
       <div class="problem__visual reveal">
-        <img class="problem__ficha" src="assets/ficha-google.webp" alt="Perfil de empresa no Google Maps com fotos, nota e botões — exemplo real da The Coffee" width="820" height="1230" loading="lazy" decoding="async" />
+        <img class="problem__ficha" src="assets/ficha-google.webp" alt="Perfil de empresa no Google Maps com fotos, nota e botões — exemplo real da The Coffee" width="820" height="1230" loading="lazy" decoding="async" style="width:100%;max-width:360px;height:auto;aspect-ratio:820/1230;object-fit:contain;" />
       </div>
     </div>
   </section>
