@@ -56,12 +56,13 @@
     .problem__text { text-align: left; }
     .problem__visual { display: flex; justify-content: center; align-items: center; }
     .problem__ficha {
-      width: 100%; max-width: 360px; height: auto;
+      width: 100%; max-width: 420px; height: auto;
       aspect-ratio: 820 / 1230; object-fit: contain; align-self: center;
       border-radius: 18px; box-shadow: 0 18px 50px rgba(14,17,22,.16);
     }
     @media (min-width: 880px) {
-      .problem__grid { grid-template-columns: 1.05fr .95fr; gap: 50px; }
+      .problem__grid { grid-template-columns: 1fr 1.1fr; gap: 50px; }
+      .problem__visual { justify-content: flex-end; }
     }
   </style>
 
@@ -249,7 +250,7 @@
       </div>
 
       <div class="problem__visual reveal">
-        <img class="problem__ficha" src="assets/ficha-google.webp" alt="Perfil de empresa no Google Maps com fotos, nota e botões — exemplo real da The Coffee" width="820" height="1230" loading="lazy" decoding="async" style="width:100%;max-width:360px;height:auto;aspect-ratio:820/1230;object-fit:contain;" />
+        <img class="problem__ficha" src="assets/ficha-google.webp" alt="Perfil de empresa no Google Maps com fotos, nota e botões — exemplo real da The Coffee" width="820" height="1230" loading="lazy" decoding="async" style="width:100%;max-width:420px;height:auto;aspect-ratio:820/1230;object-fit:contain;" />
       </div>
     </div>
   </section>

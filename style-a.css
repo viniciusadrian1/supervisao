@@ -208,12 +208,13 @@ strong { font-weight: 700; }
 .problem__text .segments { justify-content: flex-start; }
 .problem__visual { display: flex; justify-content: center; align-items: center; }
 .problem__ficha {
-  width: 100%; max-width: 360px; height: auto;
+  width: 100%; max-width: 420px; height: auto;
   aspect-ratio: 820 / 1230; object-fit: contain; align-self: center;
   border-radius: 18px; box-shadow: 0 18px 50px rgba(14,17,22,.16);
 }
 @media (min-width: 880px) {
-  .problem__grid { grid-template-columns: 1.05fr .95fr; gap: 50px; }
+  .problem__grid { grid-template-columns: 1fr 1.1fr; gap: 50px; }
+  .problem__visual { justify-content: flex-end; }
 }
 
 /* Segmentos atendidos (pertencimento "isto é pra mim" + keywords) */
@@ -328,7 +329,7 @@ strong { font-weight: 700; }
 .price-card--featured {
   border-color: var(--wa);
   box-shadow: 0 0 0 2px var(--wa), var(--shadow-lg);
-  background: linear-gradient(180deg, rgba(37,211,102,.10), var(--ink-2));
+  background: var(--ink-2); /* cor sólida (sem degradê) — texto branco legível em todo o card */
 }
 .price-card__tag {
   position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
