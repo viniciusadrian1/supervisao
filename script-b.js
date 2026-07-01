@@ -10,25 +10,19 @@
      =================================================================== */
 
   // ⚠️ AJUSTAR: número de WhatsApp da campanha (formato internacional, só dígitos).
-  const WHATSAPP_PHONE = "5511995770360"; // SP — (11) 99577-0360
+  const WHATSAPP_PHONE = "5511978752367"; // número do BOT — (11) 97875-2367
 
   // ⚠️ AJUSTAR: UTM para diferenciar a variante no A/B (mesmos pixels da A).
   const WHATSAPP_UTM = ""; // ex.: "&utm_source=meta&utm_medium=cpc&utm_content=varianteB"
 
-  // Mensagem base + bloco que QUALIFICA o lead (segmento + cidade são decisivos —
-  // o serviço é presencial). \n vira quebra de linha no WhatsApp.
+  // Mensagem-GATILHO: TODOS os botões enviam este texto. É ele que ATIVA o bot no
+  // WhatsApp (o bot só inicia com esta mensagem; qualquer outra não o aciona, para não
+  // atrapalhar o atendimento humano). ⚠️ Deve conter o TRIGGER_TEXT do bot.
   const WHATSAPP_BASE_MSG =
-    "Olá! Vim pelo anúncio do Tour Virtual 360º no Google Maps. Quero saber os valores e como funciona.";
-  const WHATSAPP_QUALIFY =
-    "\n\nMeu segmento: ____ (ex.: academia, restaurante, clínica)\nCidade/bairro: ____";
+    "Olá! Vim pelo site e quero meu Tour Virtual 360º no Google Maps 🚀";
 
-  const WHATSAPP_MSGS = {
-    hero:      WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY,
-    oferta:    "Olá! Vim pelo anúncio e quero o pacote Profissional (4 fotos + 2 vídeos) do Tour 360º." + WHATSAPP_QUALIFY,
-    outros:    "Olá! Vim pelo anúncio e quero ver todos os pacotes do Tour Virtual 360º no Google Maps." + WHATSAPP_QUALIFY,
-    flutuante: WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY,
-    rodape:    WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY
-  };
+  // Todas as CTAs usam a mensagem-gatilho (atribuição do botão fica no Meta Pixel).
+  const WHATSAPP_MSGS = {};
 
   // Cronômetro de urgência (em MINUTOS). Conta a partir do load e REINICIA a cada
   // reload (urgência por sessão). OBS: é urgência PERCEBIDA, não um prazo real.

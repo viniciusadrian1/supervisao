@@ -13,36 +13,21 @@
   // Decisão pendente: este número é o do atendimento humano OU o do bot de
   // automação (2º projeto)? Trocar em 1 lugar só.
   // OBS: o número exibido no rodapé (index.html) deve casar com este valor.
-  const WHATSAPP_PHONE = "5511995770360"; // SP — (11) 99577-0360
+  const WHATSAPP_PHONE = "5511978752367"; // número do BOT — (11) 97875-2367
 
   // ⚠️ AJUSTAR (opcional): parâmetros UTM anexados ao link (rastreio de origem).
   const WHATSAPP_UTM = ""; // ex.: "&utm_source=meta&utm_medium=cpc&utm_campaign=tour360"
 
-  // Mensagem padrão pré-preenchida (sinaliza que o lead veio do anúncio).
+  // Mensagem-GATILHO: TODOS os botões enviam este texto. É ele que ATIVA o bot no
+  // WhatsApp — o bot só inicia o fluxo com esta mensagem; qualquer outra NÃO o aciona
+  // (para não atrapalhar o atendimento humano). ⚠️ Deve conter o TRIGGER_TEXT do bot
+  // ("Vim pelo site e quero meu Tour Virtual 360").
   const WHATSAPP_BASE_MSG =
-    "Olá! Vim pelo anúncio do Tour Virtual 360º no Google Maps. Quero saber os valores e como funciona.";
+    "Olá! Vim pelo site e quero meu Tour Virtual 360º no Google Maps 🚀";
 
-  // Bloco de qualificação anexado às mensagens: captura SEGMENTO e CIDADE já na
-  // 1ª mensagem (o serviço é presencial — cidade/segmento são decisivos p/ o atendimento/bot).
-  const WHATSAPP_QUALIFY =
-    "\n\nMeu segmento: ____ (ex.: academia, restaurante, clínica)\nCidade/bairro: ____";
-
-  // Mensagens por contexto (cada CTA qualifica melhor o lead p/ o atendimento/bot).
-  const WHATSAPP_MSGS = {
-    hero:               WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY,
-    problema:           "Olá! Vim pelo anúncio. Quero aparecer na frente do concorrente no Google Maps com um Tour 360º." + WHATSAPP_QUALIFY,
-    dados:              "Olá! Vim pelo anúncio e quero esses resultados do Google (mais visitas e pedidos de rota) com um Tour 360º." + WHATSAPP_QUALIFY,
-    como_funciona:      "Olá! Vim pelo anúncio e quero agendar o Tour Virtual 360º para a minha empresa." + WHATSAPP_QUALIFY,
-    galeria:            "Olá! Vim pelo anúncio. Vi os tours publicados e quero um Tour 360º assim para o meu negócio." + WHATSAPP_QUALIFY,
-    oferta:             "Olá! Vim pelo anúncio e quero garantir o valor da promoção do Tour 360º no Google Maps." + WHATSAPP_QUALIFY,
-    pacote_essencial:   "Olá! Vim pelo anúncio e quero o pacote Essencial (2 fotos + 1 vídeo) do Tour 360º." + WHATSAPP_QUALIFY,
-    pacote_profissional:"Olá! Vim pelo anúncio e quero o pacote Profissional (4 fotos + 2 vídeos) do Tour 360º." + WHATSAPP_QUALIFY,
-    pacote_completo:    "Olá! Vim pelo anúncio e quero o pacote Completo (10 fotos + 5 vídeos) do Tour 360º." + WHATSAPP_QUALIFY,
-    faq:                "Olá! Vim pelo anúncio e quero falar com um especialista sobre o Tour Virtual 360º no Google Maps." + WHATSAPP_QUALIFY,
-    final:              WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY,
-    flutuante:          WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY,
-    rodape:             WHATSAPP_BASE_MSG + WHATSAPP_QUALIFY
-  };
+  // Todas as CTAs usam a mensagem-gatilho. A atribuição de qual botão foi clicado
+  // continua pelo Meta Pixel (trackConversion). A qualificação é feita pelo bot na conversa.
+  const WHATSAPP_MSGS = {};
 
   // Cronômetro de urgência (em MINUTOS). Conta a partir do carregamento da página e
   // REINICIA toda vez que o visitante recarrega/reabre o site (urgência por sessão).
